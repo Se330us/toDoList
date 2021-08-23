@@ -27,7 +27,7 @@
 <div class="container">
     <h2>
         <span>To Do</span>
-        <span class="mask-num">1</span>
+        <span class="mask-num">{{ needDoList.length }}</span>
     </h2>
     <ul class="mask-list">
         <li v-for="(mask,index) in needDoList" :key="mask.id">
@@ -35,12 +35,12 @@
                 <input type="checkbox" v-on:change="doCheck(index, 'need')">
                 <span>{{ mask.title }}</span>
             </div>
-            <button class="btn-remove">Удалить</button>
+            <button class="btn-remove" v-on:click="removeMask(index, 'need')">Удалить</button>
         </li>
     </ul>
     <h2>
         <span>To Do</span>
-        <span class="mask-num">1</span>
+        <span class="mask-num">{{ completeList.length }}</span>
     </h2>
     <ul class="mask-list complete-list">
         <li v-for="(mask, index) in completeList" :key="mask.id">
@@ -48,7 +48,7 @@
                 <input type="checkbox" v-on:change="doCheck(index, 'complete')" checked>
                 <span>{{ mask.title }}</span>
             </div>
-            <button class="btn-remove">Удалить</button>
+            <button class="btn-remove" v-on:click="removeMask(index, 'complete')">Удалить</button>
         </li>
     </ul>
 </div>
